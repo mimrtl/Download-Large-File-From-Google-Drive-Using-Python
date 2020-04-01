@@ -33,6 +33,8 @@ def save_response_content(response, destination):
                 chunk_counter += 1 
                 if chunk_counter % 150 == 0:
                     print('.', end='' )
+                if chunk_counter % 6000 == 0:
+                    print('')
                     
                 f.write(chunk)
         
