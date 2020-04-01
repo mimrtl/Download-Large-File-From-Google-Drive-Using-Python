@@ -25,18 +25,18 @@ def get_confirm_token(response):
     return None
 
 def save_response_content(response, destination):
-    CHUNK_SIZE = 50000
+    CHUNK_SIZE = 32768
     chunk_counter = 0
     with open(destination, "wb") as f:
         for chunk in response.iter_content(CHUNK_SIZE):
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
                 
-                chunk_counter += 1
-                if chunk_counter % 2000 == 0:
-                    if chunk_counter % 80000 == 0:
-                        print('.')
-                    else:
-                        print('.',end='')
+                #chunk_counter += 1
+                #if chunk_counter % 2000 == 0:
+                #    if chunk_counter % 80000 == 0:
+                #        print('.')
+                #    else:
+                #        print('.',end='')
 
-        print('.')
+    #print('.')
