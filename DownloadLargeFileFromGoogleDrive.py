@@ -30,6 +30,7 @@ def save_response_content(response, destination):
     with open(destination, "wb") as f:
         for chunk in response.iter_content(CHUNK_SIZE):
             if chunk: # filter out keep-alive new chunks
+                f.write(chunk)
                 
                 chunk_counter += 1
                 if chunk_counter % 2000 == 0:
@@ -38,7 +39,5 @@ def save_response_content(response, destination):
                         print('.')
                     else:
                         print('.',end='')
-                    
-                f.write(chunk)
 
-    print('.')
+        print('.')
