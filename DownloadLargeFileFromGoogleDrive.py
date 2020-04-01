@@ -32,6 +32,6 @@ def save_response_content(response, destination):
             if chunk: # filter out keep-alive new chunks
                 chunk_counter += 1
                 if chunk_counter % 1000 == 0:
-                    print('  ' + str(CHUNK_SIZE/1000) + ' MB downloaded...' )
+                    print('  ' + str(chunk_counter*CHUNK_SIZE/1000) + ' MB downloaded...' )
                     
                 f.write(chunk)
